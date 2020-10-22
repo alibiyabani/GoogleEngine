@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Google Engine</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <style>
+        .left-btn {
+            display: inline-block;
+            font-size: 1rem;
+            line-height: 2rem;
+            border: 0;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #0c0c0c38;
+            font-weight: 700;
+            position: fixed;
+            left: -20px;
+            color:#fff;
+            transition: 0.4s;
+            -webkit-transition: 0.4s;
+            z-index: 200;
+            width: 100px;
+            box-shadow: 0 0 5px rgba(255,255,255,.5);
+        }
+        .left-btn:hover {
+
+            left: -10px;
+        }
+        .left-btn .internal a
+        {
+            text-decoration:none;
+            color:#fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="left-btn" style="top:3rem">
+        <div class="internal" style="float: right;padding-right: .6rem;"><a href="/Searches">Result 1</a></div>
+    </div>
+    <div class="left-btn" style="top:6rem">
+        <div class="internal" style="float: right;padding-right: .6rem;"><a href="/Results">Result 2</a></div>
+    </div>
+    <div class="container">
+        <img src="~/image/cool-background.png" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

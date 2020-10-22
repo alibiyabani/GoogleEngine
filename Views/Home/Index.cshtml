@@ -1,0 +1,43 @@
+﻿@model List<GoogleEngine.Models.Search>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-inline" method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="index">
+                <div class="frame">
+                    <div class="form-group mb-8">
+                        <input type="text" class="form-control" id="terms" name="terms" value="" placeholder="Enter Your Terms..." required>
+                        <input class="btn btn-dark" type="submit" value="Search" />
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+<hr />
+
+<div class="container">
+    <row>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-12 result-frame">
+                    <a href="@item.Link" target="_blank">@item.Title</a>
+                    <p style="color:#28a745">@item.Link</p>
+                    <p style="color:gray;">@item.Snippet</p>
+                </div>
+            }
+        }
+    </row>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
